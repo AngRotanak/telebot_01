@@ -5,7 +5,7 @@ from config import TOKEN, PORT
 
 
 def start(update:Updater, context:CallbackContext):
-    update.message.reply_text("Hey ! {} from Heroku".format(update.message.from_user.username))
+    update.message.reply_text("Hey ! {} from Heroku !!".format(update.message.from_user.username))
 
 if __name__ == '__main__':
     updater = Updater(TOKEN)
