@@ -23,8 +23,9 @@ def main():
 
     dp.add_handler(CommandHandler("start", start))
 
-    updater.start_polling()
+
     updater.start_webhook("0.0.0.0", PORT, TOKEN, webhook_url='https://naktabot.herokuapp.com/' + TOKEN)
+    updater.start_polling()
     updater.idle()
 
 if __name__ == '__main__':
