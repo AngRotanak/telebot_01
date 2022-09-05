@@ -19,9 +19,10 @@ def main():
 
     dp = updater.dispatcher
 
+    dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
 
-    dp.add_handler(CommandHandler("start", start))
+
 
 
     updater.start_webhook("0.0.0.0", PORT, TOKEN, webhook_url='https://naktabot.herokuapp.com/' + TOKEN)
