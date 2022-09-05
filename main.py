@@ -4,14 +4,14 @@ from telegram.ext import Updater, CommandHandler, CallbackContext
 from config import TOKEN, PORT
 
 
-def start(update, context):
-    """Send a message when the command /start is issued."""
-    update.message.reply_text('Hi!')
-
-
 def help(update, context):
     """Send a message when the command /help is issued."""
-    update.message.reply_text('Help!')
+    update.message.reply_text("OK {} I am here to help you ".format(update.message.from_user.username))
+
+def help(update, context):
+    """Send a message when the command /hi is issued."""
+    update.message.reply_text("hello {} from Heroku !!".format(update.message.from_user.username))
+
 
 def main():
     updater = Updater(TOKEN)
