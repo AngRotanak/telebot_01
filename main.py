@@ -21,6 +21,6 @@ async def send_welcome(message: types.Message):
 
 
 if __name__ == '__main__':
-    executor.start_webhook("0.0.0.0", PORT, TOKEN, webhook_url='https://naktabot.herokuapp.com/'+TOKEN)
+    executor.start_polling(dp, skip_updates=True)
 
 
