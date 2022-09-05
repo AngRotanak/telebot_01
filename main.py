@@ -1,19 +1,26 @@
-from telegram import Update
-from telegram.ext import Updater, CommandHandler, CallbackContext
 
+from aiogram import Bot, Dispatcher, executor, types
 from config import TOKEN, PORT
 
 
-def start(update:Updater, context:CallbackContext):
-    update.message.reply_text("Hey hello {} from Heroku !!".format(update.message.from_user.username))
+bot = Bot(token=TOKEN)
+dp = Dispatcher(bot)
+
+@dp.message_handler(commands=['all', 'ពត៌មាន'])
+async def send_welcome(message: types.Message):
+    """
+    This handler will be called when user sends `/start` or `/help` command
+    """
+    await message.reply(
+        "/start \n"
+        "/help \n"
+        "/menu \n"
+        "/order \n"
+    )
+
+
 
 if __name__ == '__main__':
-    updater = Updater(TOKEN)
+    executor.start_webhook("0.0.0.0", PORT, TOKEN, webhook_url='https://naktabot.herokuapp.com/'+TOKEN)
 
-    dp = updater.dispatcher
-
-    dp.add_handler(CommandHandler("start", start))
-
-    updater.start_webhook("0.0.0.0", PORT, TOKEN, webhook_url='https://naktabot.herokuapp.com/'+TOKEN)
-    updater.idle()
 
